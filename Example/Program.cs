@@ -1,7 +1,6 @@
 ﻿using Bit0.Utils.Windows.Info;
 using System;
 using System.Linq;
-using System.Management;
 
 namespace Example
 {
@@ -9,16 +8,12 @@ namespace Example
     {
         static void Main(string[] args)
         {
-            ManagementPath path = new ManagementPath()
-            {
-                NamespacePath = @"root\CIMV2",
-                Server = "."
-            };
+            var wmi = new WmiWrapper();
 
-            var a = Common.Instance.GetQueryResult(path, "Win32_NetworkAdapter")
+            var a = wmi.GetQueryResult("Win32_NetworkAdapter")
                 .Where(p => p.Properties["PhysicalAdapter"].Value.ToString() == "True");
 
-            foreach (ManagementObject i in a)
+            foreach (var i in a)
             {
                 Console.WriteLine(i.Properties["Name"].Value);
                 Console.WriteLine(i.Properties["MACAddress"].Value);
