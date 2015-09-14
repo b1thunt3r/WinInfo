@@ -40,6 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Info\ComputerSystem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Info\NetworkAdapter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Info\OperatingSystem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Info\Processor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Info\SystemEnclosure.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Info\WmiWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

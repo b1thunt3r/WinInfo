@@ -1,6 +1,7 @@
-﻿using Bit0.Utils.Windows.Info;
+﻿using ROOT.CIMV2.Win32;
 using System;
 using System.Linq;
+using System.Management;
 
 namespace Example
 {
@@ -8,15 +9,20 @@ namespace Example
     {
         static void Main(string[] args)
         {
-            var wmi = new WmiWrapper();
-
-            var a = wmi.GetQueryResult("Win32_NetworkAdapter")
-                .Where(p => p.Properties["PhysicalAdapter"].Value.ToString() == "True");
-
-            foreach (var i in a)
+            var scope = new ManagementScope(new ManagementPath()
             {
-                Console.WriteLine(i.Properties["Name"].Value);
-                Console.WriteLine(i.Properties["MACAddress"].Value);
+                NamespacePath = @"root\cimv2",
+                Server = "."
+            });
+
+            var nets = NetworkAdapter.GetInstances(scope, "")
+                .Cast<NetworkAdapter>().Where(n => n.PhysicalAdapter);
+
+            foreach (NetworkAdapter net in nets)
+            {
+                Console.WriteLine(net.Name);
+                Console.WriteLine("\t" + net.MACAddress);
+                Console.WriteLine();
             }
 
             Console.WriteLine();

@@ -1,0 +1,1 @@
+mgmtclassgen Win32_Processor /N root\cimv2 /p Processor.cs
