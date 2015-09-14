@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Bit0.Utils.Windows.Info;
+using System;
 using System.Linq;
 using System.Management;
 
-namespace Bit0.Utils.Window.Info
+namespace Example
 {
     class Program
     {
