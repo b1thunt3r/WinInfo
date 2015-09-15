@@ -55,6 +55,7 @@
     <Compile Include="Info\SystemEnclosure.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Info\Wmi.cs" />
     <Compile Include="Info\WmiWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
