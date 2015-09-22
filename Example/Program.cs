@@ -1,6 +1,4 @@
-﻿using Bit0.Utils.Windows.Info;
-using ROOT.CIMV2.Win32;
-using System;
+﻿using System;
 using System.Linq;
 
 namespace Example
@@ -13,15 +11,17 @@ namespace Example
             if (args != null && args.Any())
                 server = args[0];
 
-            var nets = NetworkAdapter.GetInstances(Wmi.GetScope(server: server), "")
-                .Cast<NetworkAdapter>().Where(n => n.PhysicalAdapter);
+            //var system = ComputerSystem.GetInstances(Wmi.GetScope(server: server), "");
 
-            foreach (var net in nets)
-            {
-                Console.WriteLine(net.Name);
-                Console.WriteLine("\t" + net.MACAddress);
-                Console.WriteLine();
-            }
+            //var nets = NetworkAdapter.GetInstances(Wmi.GetScope(server: server), "")
+            //    .Cast<NetworkAdapter>().Where(n => n.PhysicalAdapter);
+
+            //foreach (var net in nets)
+            //{
+            //    Console.WriteLine(net.Name);
+            //    Console.WriteLine("\t" + net.MACAddress);
+            //    Console.WriteLine();
+            //}
 
             Console.WriteLine();
             Console.Write("Press any key to continue...");
