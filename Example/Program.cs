@@ -12,12 +12,8 @@ namespace Example
     {
         static void Main(string[] args)
         {
-            var server = ".";
-            if (args != null && args.Any())
-                server = args[0];
-
             var sb = new StringBuilder();
-            var scope = Wmi.GetScope(server: server);
+            var scope = Wmi.GetScope();
             var enumOptions = new EnumerationOptions { EnsureLocatable = true };
 
             var system = ComputerSystem.GetInstances(scope, enumOptions).Cast<ComputerSystem>().FirstOrDefault();
