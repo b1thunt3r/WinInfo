@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{50F2E2F4-AB2E-4046-B545-D7D3E88AEF57}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Bit0.Utils.Windows</RootNamespace>
     <AssemblyName>WinInfo</AssemblyName>
@@ -35,6 +35,10 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>dev.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>Bit0.Utils.Windows.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,7 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\EnumExtensions.cs" />
-    <Compile Include="Extensions\StringBuilderExtensions.cs" />
     <Compile Include="Info\ComputerSystem.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -63,11 +66,14 @@
     <Compile Include="Info\SystemEnclosure.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Info\Ui\Tui.cs" />
     <Compile Include="Info\Wmi.cs" />
     <Compile Include="Info\WmiWrapper.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.manifest" />
     <None Include="dev.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
