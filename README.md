@@ -1,2 +1,2 @@
 # WinInfo
-Try to posrt a WMI/VBS to C#+WMI.
+Try to port a WMI/VBS to C#+WMI.
